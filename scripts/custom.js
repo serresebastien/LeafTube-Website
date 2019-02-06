@@ -1,129 +1,132 @@
+$(window).load(function () { // makes sure the whole site is loaded
 
-$(window).load(function() { // makes sure the whole site is loaded
-
-	"use strict";
-
+    "use strict";
 
 
-//------------------------------------------------------------------------
-//						PRELOADER SCRIPT
-//------------------------------------------------------------------------   
+
+    //------------------------------------------------------------------------
+    //						PRELOADER SCRIPT
+    //------------------------------------------------------------------------
     $('#preloader').delay(400).fadeOut('slow'); // will fade out the white DIV that covers the website.
     $('#preloader .inner').fadeOut(); // will first fade out the loading animation
 
 
-//------------------------------------------------------------------------
-//						WOW ANIMATION SETTINGS
-//------------------------------------------------------------------------ 	
-	var wow = new WOW({
-    	offset:100,        // distance to the element when triggering the animation (default is 0)
-    	mobile:false       // trigger animations on mobile devices (default is true)
-  	});
-	wow.init();
-
-
-	
-//------------------------------------------------------------------------
-//						STELLAR (PARALLAX) SETTINGS
-//------------------------------------------------------------------------ 	
-if(!(navigator.userAgent.match(/iPhone|iPad|iPod|Android|BlackBerry|IEMobile/i))) {
-	$.stellar({
-		horizontalScrolling: false,
-		positionProperty: 'transform'
-	});
-}
+    //------------------------------------------------------------------------
+    //						WOW ANIMATION SETTINGS
+    //------------------------------------------------------------------------
+    var wow = new WOW({
+        offset: 100, // distance to the element when triggering the animation (default is 0)
+        mobile: false // trigger animations on mobile devices (default is true)
+    });
+    wow.init();
 
 
 
-//------------------------------------------------------------------------
-//						NAVBAR SLIDE SCRIPT
-//------------------------------------------------------------------------ 		
-	$(window).scroll(function () {
+    //------------------------------------------------------------------------
+    //						STELLAR (PARALLAX) SETTINGS
+    //------------------------------------------------------------------------
+    if (!(navigator.userAgent.match(/iPhone|iPad|iPod|Android|BlackBerry|IEMobile/i))) {
+        $.stellar({
+            horizontalScrolling: false,
+            positionProperty: 'transform'
+        });
+    }
+
+
+
+    //------------------------------------------------------------------------
+    //						NAVBAR SLIDE SCRIPT
+    //------------------------------------------------------------------------
+    $(window).scroll(function () {
         if ($(window).scrollTop() > $("nav").height()) {
             $("nav.navbar-slide").addClass("show-menu");
         } else {
             $("nav.navbar-slide").removeClass("show-menu");
-			$(".navbar-slide .navMenuCollapse").collapse({toggle: false});
-			$(".navbar-slide .navMenuCollapse").collapse("hide");
-			$(".navbar-slide .navbar-toggle").addClass("collapsed");
+            $(".navbar-slide .navMenuCollapse").collapse({
+                toggle: false
+            });
+            $(".navbar-slide .navMenuCollapse").collapse("hide");
+            $(".navbar-slide .navbar-toggle").addClass("collapsed");
         }
     });
-	
+
 })
 
 
 
 
-$(document).ready(function(){
-	
-	"use strict";
+$(document).ready(function () {
 
-
-	
-//------------------------------------------------------------------------
-//						ANCHOR SMOOTHSCROLL SETTINGS
-//------------------------------------------------------------------------
-	$('a.goto, .navbar .nav a').smoothScroll({speed: 1200});
-	
+    "use strict";
 
 
 
-//------------------------------------------------------------------------
-//						FULL HEIGHT SECTION SCRIPT
-//------------------------------------------------------------------------
-	$("#minimal-intro").css("min-height",$( window ).height());
-	$( window ).resize(function() {
-		$("#minimal-intro").css("min-height",$( window ).height());
-	})
-
-
-	
-	
-//------------------------------------------------------------------------
-//						INTRO SUPERSLIDER SETTINGS
-//------------------------------------------------------------------------
-	$("#slides").superslides({
-		play: 8000, //Milliseconds before progressing to next slide automatically. Use a falsey value to disable.
-		animation: "fade", //slide or fade. This matches animations defined by fx engine.
-		pagination: false,
-		inherit_height_from:".intro-block",
-		inherit_width_from:".intro-block"
-	});
+    //------------------------------------------------------------------------
+    //						ANCHOR SMOOTHSCROLL SETTINGS
+    //------------------------------------------------------------------------
+    $('a.goto, .navbar .nav a').smoothScroll({
+        speed: 1200
+    });
 
 
 
 
-//------------------------------------------------------------------------
-//						SCREENSHOTS SLIDER SETTINGS
-//------------------------------------------------------------------------
+    //------------------------------------------------------------------------
+    //						FULL HEIGHT SECTION SCRIPT
+    //------------------------------------------------------------------------
+    $("#minimal-intro").css("min-height", $(window).height());
+    $(window).resize(function () {
+        $("#minimal-intro").css("min-height", $(window).height());
+    })
+
+
+
+
+    //------------------------------------------------------------------------
+    //						INTRO SUPERSLIDER SETTINGS
+    //------------------------------------------------------------------------
+    $("#slides").superslides({
+        play: 8000, //Milliseconds before progressing to next slide automatically. Use a falsey value to disable.
+        animation: "fade", //slide or fade. This matches animations defined by fx engine.
+        pagination: false,
+        inherit_height_from: ".intro-block",
+        inherit_width_from: ".intro-block"
+    });
+
+
+
+
+    //------------------------------------------------------------------------
+    //						SCREENSHOTS SLIDER SETTINGS
+    //------------------------------------------------------------------------
     var owl = $("#screenshots-slider");
     owl.owlCarousel({
-        items : 5, 
-        itemsDesktop : [1400,4], 
-        itemsDesktopSmall : [1200,3], 
-        itemsTablet: [900,2], 
-        itemsMobile : [600,1],
-		stopOnHover:true
+        items: 5,
+        itemsDesktop: [1400, 4],
+        itemsDesktopSmall: [1200, 3],
+        itemsTablet: [900, 2],
+        itemsMobile: [600, 1],
+        stopOnHover: true
     });
-	
-	
-	
-//------------------------------------------------------------------------
-//						TESTIMONIALS SLIDER SETTINGS
-//------------------------------------------------------------------------
+
+
+
+    //------------------------------------------------------------------------
+    //						TESTIMONIALS SLIDER SETTINGS
+    //------------------------------------------------------------------------
     var owl = $("#testimonials-slider");
     owl.owlCarousel({
-        singleItem:true,
-		autoPlay:5000,
-		stopOnHover:true
+        singleItem: true,
+        autoPlay: 5000,
+        stopOnHover: true
     });
 
 
 
-//------------------------------------------------------------------------	
-//                    MAGNIFIC POPUP(LIGHTBOX) SETTINGS
-//------------------------------------------------------------------------  
-	          
+    //------------------------------------------------------------------------
+    //                    MAGNIFIC POPUP(LIGHTBOX) SETTINGS
+    //------------------------------------------------------------------------
+
     $('#screenshots-slider').magnificPopup({
         delegate: 'a',
         type: 'image',
@@ -133,10 +136,10 @@ $(document).ready(function(){
     });
 
 
-	
-//------------------------------------------------------------------------
-//					SUBSCRIBE FORM VALIDATION'S SETTINGS
-//------------------------------------------------------------------------          
+
+    //------------------------------------------------------------------------
+    //					SUBSCRIBE FORM VALIDATION'S SETTINGS
+    //------------------------------------------------------------------------
     $('#subscribe_form').validate({
         onfocusout: false,
         onkeyup: false,
@@ -146,72 +149,72 @@ $(document).ready(function(){
                 email: true
             }
         },
-        errorPlacement: function(error, element) {
-            error.appendTo( element.closest("form"));
+        errorPlacement: function (error, element) {
+            error.appendTo(element.closest("form"));
         },
         messages: {
             email: {
-                required: "Nous avons besoin de votre email pour vous recontacter",
-                email: "Entrez un email valide"
+                required: "We need your email address to contact you",
+                email: "Please, enter a valid email"
             }
         },
-					
-        highlight: function(element) {
-            $(element)
-        },                    
-					
-        success: function(element) {
-            element
-            .text('').addClass('valid')
-        }
-    }); 
-	
 
-		
-				
-//------------------------------------------------------------------------------------
-//						SUBSCRIBE FORM MAILCHIMP INTEGRATIONS SCRIPT
-//------------------------------------------------------------------------------------		
-    $('#subscribe_form').submit(function() {
+        highlight: function (element) {
+            $(element)
+        },
+
+        success: function (element) {
+            element
+                .text('').addClass('valid')
+        }
+    });
+
+
+
+
+    //------------------------------------------------------------------------------------
+    //						SUBSCRIBE FORM MAILCHIMP INTEGRATIONS SCRIPT
+    //------------------------------------------------------------------------------------
+    $('#subscribe_form').submit(function () {
         $('.error').hide();
         $('.error').fadeIn();
         // submit the form
-        if($(this).valid()){
-            $('#subscribe_submit').button('loading'); 
+        if ($(this).valid()) {
+            $('#subscribe_submit').button('loading');
             var action = $(this).attr('action');
             $.ajax({
-                url: '../subscribe.php',
+                url: action,
                 type: 'POST',
                 data: {
                     newsletter_email: $('#subscribe_email').val()
                 },
-                success: function(data) {
+                success: function (data) {
                     $('#subscribe_submit').button('reset');
-					
-					//Use modal popups to display messages
-					$('#modalMessage .modal-title').html('<i class="icon icon-envelope-open"></i>' + data);
-					$('#modalMessage').modal('show');
-					
+
+                    //Use modal popups to display messages
+                    $('#modalMessage .modal-title').html('<i class="icon icon-envelope-open"></i>' + data);
+                    $('#modalMessage').modal('show');
+
                 },
-                error: function() {
+                error: function () {
                     $('#subscribe_submit').button('reset');
-					
-					//Use modal popups to display messages
-					$('#modalMessage .modal-title').html('<i class="icon icon-ban"></i>Oops!<br>Un problème est survenu...');
-					$('#modalMessage').modal('show');
-					
+
+                    //Use modal popups to display messages
+                    $('#modalMessage .modal-title').html('<i class="icon icon-ban"></i>Oops!<br>Something went wrong!');
+                    $('#modalMessage').modal('show');
+
                 }
             });
         }
-        return false; 
+        return false;
     });
-	  
-	  
-	  
-	  
-//------------------------------------------------------------------------------------
-//						CONTACT FORM VALIDATION'S SETTINGS
-//------------------------------------------------------------------------------------		  
+
+
+
+
+    //------------------------------------------------------------------------------------
+    //						CONTACT FORM VALIDATION'S SETTINGS
+    //------------------------------------------------------------------------------------
     $('#contact_form').validate({
         onfocusout: false,
         onkeyup: false,
@@ -223,75 +226,75 @@ $(document).ready(function(){
                 email: true
             }
         },
-        errorPlacement: function(error, element) {
+        errorPlacement: function (error, element) {
             error.insertAfter(element);
         },
         messages: {
-            name: "Quel est votre nom ?",
-            message: "Entrez votre message.",
+            name: "What's your name?",
+            message: "Type your message",
             email: {
-                required: "Quel est votre adresse ?",
-                email: "Entrez un email valide."
+                required: "What's your email?",
+                email: "Please, enter a valid email"
             }
         },
-					
-        highlight: function(element) {
+
+        highlight: function (element) {
             $(element)
-            .text('').addClass('error')
-        },                    
-					
-        success: function(element) {
+                .text('').addClass('error')
+        },
+
+        success: function (element) {
             element
-            .text('').addClass('valid')
+                .text('').addClass('valid')
         }
-    });   
+    });
 
 
 
 
-//------------------------------------------------------------------------------------
-//								CONTACT FORM SCRIPT
-//------------------------------------------------------------------------------------	
-	
-    $('#contact_form').submit(function() {
+    //------------------------------------------------------------------------------------
+    //								CONTACT FORM SCRIPT
+    //------------------------------------------------------------------------------------
+
+    $('#contact_form').submit(function () {
         // submit the form
-        if($(this).valid()){
-            $('#contact_submit').button('loading'); 
+        if ($(this).valid()) {
+            $('#contact_submit').button('loading');
             var action = $(this).attr('action');
             $.ajax({
-                url: '../contact.php',
+                url: action,
                 type: 'POST',
                 data: {
                     contactname: $('#contact_name').val(),
                     contactemail: $('#contact_email').val(),
                     contactmessage: $('#contact_message').val()
                 },
-                success: function() {
+                success: function () {
                     $('#contact_submit').button('reset');
-					$('#modalContact').modal('hide');
-					
-					//Use modal popups to display messages
-					$('#modalMessage .modal-title').html('<i class="icon icon-envelope-open"></i>Le message a bien été transmis.<br>Merci de votre intéret pour Le Techlab.');
-					$('#modalMessage').modal('show');
+                    $('#modalContact').modal('hide');
+
+                    //Use modal popups to display messages
+                    $('#modalMessage .modal-title').html('<i class="icon icon-envelope-open"></i>Well done!<br>Your message has been successfully sent!');
+                    $('#modalMessage').modal('show');
                 },
-                error: function() {
+                error: function () {
                     $('#contact_submit').button('reset');
-					$('#modalContact').modal('hide');
-					
-					//Use modal popups to display messages
-					$('#modalMessage .modal-title').html('<i class="icon icon-ban"></i>Oops!<br>Un problème est survenu....');
-					$('#modalMessage').modal('show');
+                    $('#modalContact').modal('hide');
+
+                    //Use modal popups to display messages
+                    $('#modalMessage .modal-title').html('<i class="icon icon-ban"></i>Oops!<br>Something went wrong!');
+                    $('#modalMessage').modal('show');
                 }
             });
         } else {
             $('#contact_submit').button('reset')
         }
-        return false; 
-    });	    
-	  
-//------------------------------------------------------------------------------------
-//						EMAIL LINK FORM VALIDATION'S SETTINGS
-//------------------------------------------------------------------------------------		  
+        return false;
+    });
+
+    //------------------------------------------------------------------------------------
+    //						EMAIL LINK FORM VALIDATION'S SETTINGS
+    //------------------------------------------------------------------------------------
     $('#email_link_form').validate({
         onfocusout: false,
         onkeyup: false,
@@ -301,7 +304,7 @@ $(document).ready(function(){
                 email: true
             }
         },
-        errorPlacement: function(error, element) {
+        errorPlacement: function (error, element) {
             error.insertAfter(element);
         },
         messages: {
@@ -310,26 +313,26 @@ $(document).ready(function(){
                 email: "Please, enter a valid email"
             }
         },
-					
-        highlight: function(element) {
+
+        highlight: function (element) {
             $(element)
-            .text('').addClass('error')
-        },                    
-					
-        success: function(element) {
+                .text('').addClass('error')
+        },
+
+        success: function (element) {
             element
-            .text('').addClass('valid')
+                .text('').addClass('valid')
         }
-    });   
-	
-//------------------------------------------------------------------------------------
-//								EMAIL LINK FORM SCRIPT
-//------------------------------------------------------------------------------------	
-	
-    $('#email_link_form').submit(function() {
+    });
+
+    //------------------------------------------------------------------------------------
+    //								EMAIL LINK FORM SCRIPT
+    //------------------------------------------------------------------------------------
+
+    $('#email_link_form').submit(function () {
         // submit the form
-        if($(this).valid()){
-            $('#email_link_submit').button('loading'); 
+        if ($(this).valid()) {
+            $('#email_link_submit').button('loading');
             var action = $(this).attr('action');
             $.ajax({
                 url: action,
@@ -337,28 +340,28 @@ $(document).ready(function(){
                 data: {
                     email: $('#link_email').val(),
                 },
-                success: function() {
+                success: function () {
                     $('#email_link_submit').button('reset');
-					$('#modalEmailLink').modal('hide');
-					
-					//Use modal popups to display messages
-					$('#modalMessage .modal-title').html('<i class="icon icon-envelope-open"></i>Great!<br>We just sent you that link!');
-					$('#modalMessage').modal('show');
+                    $('#modalEmailLink').modal('hide');
+
+                    //Use modal popups to display messages
+                    $('#modalMessage .modal-title').html('<i class="icon icon-envelope-open"></i>Great!<br>We just sent you that link!');
+                    $('#modalMessage').modal('show');
                 },
-                error: function() {
+                error: function () {
                     $('#email_link_form').button('reset');
-					$('#modalEmailLink').modal('hide');
-					
-					//Use modal popups to display messages
-					$('#modalMessage .modal-title').html('<i class="icon icon-ban"></i>Oops!<br>Something went wrong!');
-					$('#modalMessage').modal('show');
+                    $('#modalEmailLink').modal('hide');
+
+                    //Use modal popups to display messages
+                    $('#modalMessage .modal-title').html('<i class="icon icon-ban"></i>Oops!<br>Something went wrong!');
+                    $('#modalMessage').modal('show');
                 }
             });
         } else {
             $('#email_link_submit').button('reset')
         }
-        return false; 
-    });	    
-	  
+        return false;
+    });
+
 
 });

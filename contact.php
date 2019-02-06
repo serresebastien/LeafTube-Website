@@ -5,6 +5,6 @@ $message = $_POST['contactmessage'];
 
 $message2=$name."\n\n".$email."\n\n".$message."\n\n";
 
-mail("serre_sebastien@hotmail.fr","LeTechlab - Contact",$message2);
+mail("serre_sebastien@hotmail.fr","LeafTube - Contact",$message2);
 
 ?>
