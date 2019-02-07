@@ -1,5 +1,5 @@
 <?php
-$email = $_POST['newsletter_email'];
+$email = $_POST['subscribe_email'];
 
 mail("contact.leaftube@gmail.com","LeaftTube - Inscription à la newsletter","Merci d'ajouter $email à la mail list.");
 
