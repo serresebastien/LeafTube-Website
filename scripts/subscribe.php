@@ -1,16 +1,24 @@
 <?php
+
+// ##########################################
+//               COLLECTING DATA
+// ##########################################
+
 $email = $_POST['subscribe_email'];
+$myDate = date('l jS \of F Y h:i:s A');
+
+// ##########################################
+//               SENDING DATA
+// ##########################################
 
 mail("contact.leaftube@gmail.com","LeaftTube - Inscription à la newsletter","Merci d'ajouter $email à la mail list.");
 
-echo "Votre inscription à la newsletter a bien été prise en compte. Merci de votre intéret pour Le Techlab.";
+// ##########################################
+//					SAVING DATA
+// ##########################################
 
-// ###################################################################
-//					ENREGISTREMENT DES DONNEES DANS FICHIER
-// ###################################################################
-
-$fichier_ecrire = fopen("newsletter.txt", "a+");
-fwrite($fichier_ecrire, $email."\n");
-fclose($fichier_ecrire);
+$myFile = fopen("newsletter.txt", "a+");
+fwrite($myFile, "This subscription was receive on ".$myDate.".\n"$email."\n\n");
+fclose($myFile);
 
 ?>
