@@ -436,7 +436,7 @@ button {
 }
 
 .intro-bg-image {
-    background-image: url("../images/bg-2.jpg");
+    background-image: url("../images/bg-1.jpg");
     background-size: cover;
 }
 
@@ -3399,7 +3399,7 @@ aside.blog-sidebar .recent-posts .comments:after {
 }
 
 .post .post-content {
-    padding: 40px;
+    padding: 20px;
 }
 
 .post .post-content .title {
@@ -3452,7 +3452,7 @@ ul.time-line:before {
 }
 
 ul.time-line li {
-    padding-bottom: 80px;
+    padding-bottom: 60px;
     position: relative;
 }
 
